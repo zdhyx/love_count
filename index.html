@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<title>ZDHYX's Counter</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<audio autoplay="true">
+		<source src="love.mp3">
+	</audio>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="space"/>HYX，<br />
+				<br />
+				<span class="space"/>我喜欢你，喜欢你拽拽的样子，<br />
+				<span class="space"/>也喜欢，看到你时，自己傻傻的样子。<br />
+				<span class="space"/>我喜欢你，喜欢你奋斗的热情，<br />
+				<span class="space"/>也因为，为了你，我有了前进的动力。<br />
+				<span class="space"/>我喜欢你，因为你总能让我找到，<br />
+				<span class="space"/>最真实的那部分。<br />
+				<span class="space"/><br />
+				<span class="space"/>还是喜欢你，你那似乎能读懂我心的大眼睛，<br />
+				<span class="space"/>就如同阳光穿过水面般透彻。<br />
+				<span class="space"/>在你眼中，<br />
+				<span class="space"/>我心中角落里惆怅几乎都被消灭。<br />
+				<span class="space"/>而你那最耀眼的光芒，<br />
+				<span class="space"/>却将我的心全部照亮。<br />
+
+				<span class="space"/>以后每天的清晨醒来，我都能看到你的眼睛吗？<br />
+				<hr>
+				<span class="space"/>--ZD<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						HYX, be together
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						forever and ever with me.<br/>
+						<div class="signature">- zd</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2020, 0, 4);
+		together.setHours(0);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
